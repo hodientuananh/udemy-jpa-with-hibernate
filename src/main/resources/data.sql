@@ -8,10 +8,10 @@ create table person
 );
 
 insert into person(id, name, location, birth_date) values
-(1000, 'one', 'Vietnam', sysdate());
+(1000, 'zero', 'Vietnam', sysdate());
 
 insert into person(id, name, location, birth_date) values
-(1001, 'two', 'Vietnam', sysdate());
+(1001, 'one', 'Vietnam', sysdate());
 
 insert into person(id, name, location, birth_date) values
-(1002, 'three', 'Vietnam', sysdate());
+(1002, 'two', 'Vietnam', sysdate());
