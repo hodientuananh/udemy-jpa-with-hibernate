@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.benkinmat.database.udemyjpawithhibernate.entity.Person;
 import com.benkinmat.database.udemyjpawithhibernate.jdbc.PersonJdbcDao;
+import com.benkinmat.database.udemyjpawithhibernate.jpa.CourseJpaRepository;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.PersonJpaRepository;
 
 @SpringBootApplication
@@ -24,6 +25,9 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 	
 	@Autowired
 	PersonJpaRepository personJpaRepository;
+	
+	@Autowired
+	CourseJpaRepository courseJpaRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(UdemyJpaWithHibernateApplication.class, args);
@@ -43,6 +47,8 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 		log.info("Update person with id = 1002, row affected = " + personJpaRepository.update(new Person(1002, "two updated", "Vietnam", new Date())));
 		personJpaRepository.deleteById(1000);
 		log.info("All person: " + personJpaRepository.findAll());
+		
+		log.info("Course with id = 1000 " + courseJpaRepository.findById(1000l));
 		
 	}
 
