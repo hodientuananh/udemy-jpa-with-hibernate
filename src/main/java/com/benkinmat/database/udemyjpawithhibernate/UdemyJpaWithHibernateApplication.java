@@ -42,14 +42,14 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 //		log.info("Insert person with id = 1004, row affected = " + personJdbcDao.insert(new Person(1004, "four", "Vietnam", new Date())));
 //		log.info("Update person with id = 1002, row affected = " + personJdbcDao.update(new Person(1002, "two updated", "Vietnam", new Date())));
 		
-		log.info("Person with id = 1000 " + personJpaRepository.findById(1000));
-		log.info("Insert person with id = 1004, row affected = " + personJpaRepository.insert(new Person("four", "Vietnam", new Date())));
-		log.info("Update person with id = 1002, row affected = " + personJpaRepository.update(new Person(1002, "two updated", "Vietnam", new Date())));
-		personJpaRepository.deleteById(1000);
-		log.info("All person: " + personJpaRepository.findAll());
+//		log.info("Person with id = 1000 " + personJpaRepository.findById(1000));
+//		log.info("Insert person with id = 1004, row affected = " + personJpaRepository.insert(new Person("four", "Vietnam", new Date())));
+//		log.info("Update person with id = 1002, row affected = " + personJpaRepository.update(new Person(1002, "two updated", "Vietnam", new Date())));
+//		personJpaRepository.deleteById(1000);
+//		log.info("All person: " + personJpaRepository.findAll());
 		
 		log.info("Course with id = 1000 " + courseJpaRepository.findById(1000l));
-		
+		courseJpaRepository.deleteById(1000L);
 	}
 
 }

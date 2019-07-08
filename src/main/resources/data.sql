@@ -20,3 +20,7 @@ insert into person(id, name, location, birth_date) values
 
 insert into course(id, name) values
 (1000, 'Spring with Jpa');
+insert into course(id, name) values
+(1001, 'Spring with Hibernate');
+insert into course(id, name) values
+(1002, 'Spring with Junit');
