@@ -36,5 +36,18 @@ public class CourseRepositoryTests {
 		repository.deleteById(1000L);
 		assertNull(repository.findById(1000L));
 	}
+	
+	@Test
+	@DirtiesContext
+	public void save() {
+		Course course = repository.findById(1000L);
+		assertEquals("Spring with Jpa" , course.getName());
+		
+		course.setName("Spring with Jpa - Updated");
+		repository.save(course);
+		
+		Course updatedCourse = repository.findById(1000L);
+		assertEquals("Spring with Jpa - Updated" , updatedCourse.getName());
+	}
 
 }
