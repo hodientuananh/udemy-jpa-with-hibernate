@@ -49,7 +49,7 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 //		log.info("All person: " + personJpaRepository.findAll());
 		
 		log.info("Course with id = 1000 " + courseJpaRepository.findById(1000l));
-		courseJpaRepository.deleteById(1000L);
+//		courseJpaRepository.deleteById(1000L);
 	}
 
 }
