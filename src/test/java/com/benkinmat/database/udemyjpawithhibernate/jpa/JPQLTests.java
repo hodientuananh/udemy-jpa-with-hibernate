@@ -30,13 +30,13 @@ public class JPQLTests {
 	
 	@Test
 	public void selectAll() {
-		List<Course>courses = entityManager.createQuery("select c from Course c", Course.class).getResultList();
+		List<Course>courses = entityManager.createNamedQuery("get_all_courses", Course.class).getResultList();
 		log.info("courses: " + courses);
 	}
 	
 	@Test
 	public void selectAllWithWhere() {
-		List<Course>courses = entityManager.createQuery("select c from Course c where c.name like '%Learn new%'", Course.class).getResultList();
+		List<Course>courses = entityManager.createNamedQuery("get_learn_new_courses", Course.class).getResultList();
 		log.info("courses: " + courses);
 	}
 	
