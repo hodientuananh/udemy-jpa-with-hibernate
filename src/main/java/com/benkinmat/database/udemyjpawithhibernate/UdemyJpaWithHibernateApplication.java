@@ -14,6 +14,7 @@ import com.benkinmat.database.udemyjpawithhibernate.entity.Person;
 import com.benkinmat.database.udemyjpawithhibernate.jdbc.PersonJdbcDao;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.CourseJpaRepository;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.PersonJpaRepository;
+import com.benkinmat.database.udemyjpawithhibernate.jpa.StudentJpaRepository;
 
 @SpringBootApplication
 public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
@@ -28,6 +29,9 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 	
 	@Autowired
 	CourseJpaRepository courseJpaRepository;
+	
+	@Autowired
+	StudentJpaRepository studentJpaRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(UdemyJpaWithHibernateApplication.class, args);
@@ -52,8 +56,10 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 //		log.info("Insert new course " + courseJpaRepository.save(new Course("Learn new stuff")));
 //		courseJpaRepository.deleteById(1000L);
 		
-		log.info("Play with entity manager ");
-		courseJpaRepository.playWithEntityManager();
+//		log.info("Play with entity manager ");
+//		courseJpaRepository.playWithEntityManager();
+		
+		studentJpaRepository.saveStudentWithPassport();
 	}
 
 }

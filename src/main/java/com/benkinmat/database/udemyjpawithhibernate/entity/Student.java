@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
@@ -11,6 +12,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
@@ -23,7 +26,7 @@ public class Student {
 	@Column(nullable = false)
 	private String name;
 	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
 	
 	public Student(){
