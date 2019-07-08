@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Person;
 import com.benkinmat.database.udemyjpawithhibernate.jdbc.PersonJdbcDao;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.CourseJpaRepository;
@@ -49,6 +50,7 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 //		log.info("All person: " + personJpaRepository.findAll());
 		
 		log.info("Course with id = 1000 " + courseJpaRepository.findById(1000l));
+		log.info("Insert new course " + courseJpaRepository.save(new Course("Learn new stuff")));
 //		courseJpaRepository.deleteById(1000L);
 	}
 
