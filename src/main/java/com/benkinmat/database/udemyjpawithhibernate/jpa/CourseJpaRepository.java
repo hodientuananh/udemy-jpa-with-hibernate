@@ -43,16 +43,19 @@ public class CourseJpaRepository {
 	public void playWithEntityManager() {
 		Course course1 = new Course("Learn new stuff 1");
 		entityManager.persist(course1);
-		entityManager.flush();
 		Course course2 = new Course("Learn new stuff 2");
 		entityManager.persist(course2);
+		
 		entityManager.flush();
 		
 //		entityManager.clear();
-		entityManager.detach(course1);
+//		entityManager.detach(course1);
 		
 		course1.setName("Learn new stuff 1 - Updated");
 		course2.setName("Learn new stuff 2 - Updated");
+		
+		entityManager.refresh(course1);
+		entityManager.flush();
 	}
 	
 }
