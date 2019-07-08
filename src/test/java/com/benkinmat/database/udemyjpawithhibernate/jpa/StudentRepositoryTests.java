@@ -42,6 +42,14 @@ public class StudentRepositoryTests {
 	
 	@Test
 	@Transactional
+	public void retrieveStudentAndAssociatedPassport() {
+		Passport passport = entityManager.find(Passport.class, 1000L);
+		log.info("Passport: " + passport);
+		log.info("Student " + passport.getStudent());
+	}
+	
+	@Test
+	@Transactional
 	public void sameTest() {
 		Student student = entityManager.find(Student.class, 1000L);
 		Passport passport = student.getPassport();
