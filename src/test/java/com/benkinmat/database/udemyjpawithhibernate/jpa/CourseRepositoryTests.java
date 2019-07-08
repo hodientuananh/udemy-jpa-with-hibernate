@@ -49,5 +49,11 @@ public class CourseRepositoryTests {
 		Course updatedCourse = repository.findById(1000L);
 		assertEquals("Spring with Jpa - Updated" , updatedCourse.getName());
 	}
-
+	
+	//playWithEntityManager
+	@Test
+	@DirtiesContext
+	public void playWithEntityManager() {
+		repository.playWithEntityManager();
+	}
 }

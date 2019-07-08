@@ -19,7 +19,6 @@ import com.benkinmat.database.udemyjpawithhibernate.jpa.PersonJpaRepository;
 public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 	
 	private static final Logger log = LoggerFactory.getLogger(UdemyJpaWithHibernateApplication.class);
-
 	
 //	@Autowired
 //	PersonJdbcDao personJdbcDao;
@@ -49,9 +48,12 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 //		personJpaRepository.deleteById(1000);
 //		log.info("All person: " + personJpaRepository.findAll());
 		
-		log.info("Course with id = 1000 " + courseJpaRepository.findById(1000l));
-		log.info("Insert new course " + courseJpaRepository.save(new Course("Learn new stuff")));
+//		log.info("Course with id = 1000 " + courseJpaRepository.findById(1000l));
+//		log.info("Insert new course " + courseJpaRepository.save(new Course("Learn new stuff")));
 //		courseJpaRepository.deleteById(1000L);
+		
+		log.info("Play with entity manager ");
+		courseJpaRepository.playWithEntityManager();
 	}
 
 }
