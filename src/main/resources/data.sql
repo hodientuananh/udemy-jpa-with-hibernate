@@ -18,9 +18,9 @@ insert into person(id, name, location, birth_date) values
 insert into person(id, name, location, birth_date) values
 (1002, 'two', 'Vietnam', sysdate());
 
-insert into course(id, name) values
-(1000, 'Spring with Jpa');
-insert into course(id, name) values
-(1001, 'Spring with Hibernate');
-insert into course(id, name) values
-(1002, 'Spring with Junit');
+insert into course(id, name, created_date, last_updated_date) values
+(1000, 'Spring with Jpa', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1001, 'Spring with Hibernate', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1002, 'Spring with Junit', sysdate(), sysdate());
