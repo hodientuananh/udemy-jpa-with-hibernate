@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -40,4 +41,10 @@ public class JPQLTests {
 		log.info("courses: " + courses);
 	}
 	
+	@Test
+	public void selectCourseWithoutStudents() {
+		TypedQuery<Course> query = entityManager.createQuery("select c from Course c where c.students is empty", Course.class);
+		List<Course> courses = query.getResultList();
+		log.info("Courses: " + courses);
+	}
 }
