@@ -81,7 +81,9 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 		
 		employeeJpaRepository.insert(new FullTimeEmployee("Full time 1", new BigDecimal(1000)));
 		employeeJpaRepository.insert(new PartTimeEmployee("Part time 1", new BigDecimal(50)));
-		log.info("all employees: " + employeeJpaRepository.retrieveAllEmployees());
+		log.info("all employees: " 
+				+ employeeJpaRepository.retrieveAllPartimeEmployees()
+				+ employeeJpaRepository.retrieveFullTimeEmployees());
 	}
 
 }

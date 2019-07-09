@@ -13,6 +13,8 @@ import org.springframework.stereotype.Repository;
 import com.benkinmat.database.udemyjpawithhibernate.UdemyJpaWithHibernateApplication;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Employee;
+import com.benkinmat.database.udemyjpawithhibernate.entity.FullTimeEmployee;
+import com.benkinmat.database.udemyjpawithhibernate.entity.PartTimeEmployee;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Review;
 
 @Repository
@@ -28,8 +30,12 @@ public class EmployeeJpaRepository {
 		entityManager.persist(employee);
 	}
 	
-	public List<Employee> retrieveAllEmployees(){
-		return entityManager.createQuery("select e from Employee e", Employee.class).getResultList();
+	public List<PartTimeEmployee> retrieveAllPartimeEmployees(){
+		return entityManager.createQuery("select e from PartTimeEmployee e", PartTimeEmployee.class).getResultList();
+	}
+	
+	public List<FullTimeEmployee> retrieveFullTimeEmployees(){
+		return entityManager.createQuery("select e from FullTimeEmployee e", FullTimeEmployee.class).getResultList();
 	}
 	
 }
