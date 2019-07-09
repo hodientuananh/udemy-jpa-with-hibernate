@@ -58,4 +58,12 @@ public class StudentRepositoryTests {
 		log.info("Student: " + student + " Passport: " + passport);
 	}
 	
+	@Test
+	@Transactional
+	public void retrieveStudentAndCour() {
+		Student student = entityManager.find(Student.class, 1000L);
+		log.info("Student id 1000L" + student);
+		log.info("Course of student id 1000L " + student.getCourses());
+	}
+	
 }

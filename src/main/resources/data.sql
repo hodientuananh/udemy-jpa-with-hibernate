@@ -43,3 +43,12 @@ insert into review(id, rating, description, course_id) values
 (1001, '4', 'Average Course', 1000);
 insert into review(id, rating, description, course_id) values
 (1002, '3', 'Low Course', 1001);
+
+insert into student_course(student_id, course_id) values
+(1000, 1000);
+insert into student_course(student_id, course_id) values
+(1000, 1001);
+insert into student_course(student_id, course_id) values
+(1000, 1002);
+insert into student_course(student_id, course_id) values
+(1001, 1002);
