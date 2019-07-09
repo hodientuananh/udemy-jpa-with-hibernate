@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.benkinmat.database.udemyjpawithhibernate.UdemyJpaWithHibernateApplication;
+import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Passport;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Student;
 
@@ -56,6 +57,19 @@ public class StudentJpaRepository {
 		
 		entityManager.refresh(course1);
 		entityManager.flush();
+	}
+	
+	public void insertStudentAndCourse() {
+		Student student = new Student("Test");
+		Course course = new Course("Test");
+		
+		entityManager.persist(student);
+		entityManager.persist(course);
+		
+		student.addCourses(course);
+		course.addStudents(student);
+		
+		entityManager.persist(student);
 	}
 	
 }

@@ -64,11 +64,13 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 		
 //		studentJpaRepository.saveStudentWithPassport();
 		
-		List<Review> reviews = new ArrayList<Review>();
-		reviews.add(new Review("Greate stuff", "5"));
-		reviews.add(new Review("Greate stuff Again", "5"));
+//		List<Review> reviews = new ArrayList<Review>();
+//		reviews.add(new Review("Greate stuff", "5"));
+//		reviews.add(new Review("Greate stuff Again", "5"));
 //		courseJpaRepository.addReviewsForCourse();
-		courseJpaRepository.addReviewsForCourse(1000L, reviews );
+//		courseJpaRepository.addReviewsForCourse(1000L, reviews );
+		
+		studentJpaRepository.insertStudentAndCourse();
 	}
 
 }
