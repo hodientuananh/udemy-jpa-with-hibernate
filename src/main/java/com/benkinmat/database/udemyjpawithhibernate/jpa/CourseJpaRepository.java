@@ -1,5 +1,7 @@
 package com.benkinmat.database.udemyjpawithhibernate.jpa;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.benkinmat.database.udemyjpawithhibernate.UdemyJpaWithHibernateApplication;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
+import com.benkinmat.database.udemyjpawithhibernate.entity.Review;
 
 @Repository
 @Transactional
@@ -56,6 +59,34 @@ public class CourseJpaRepository {
 		
 		entityManager.refresh(course1);
 		entityManager.flush();
+	}
+
+	public void addReviewsForCourse() {
+		Course course = entityManager.find(Course.class, 1000L);
+		log.info("Reviews of Course 1000: " + course.getReviews());
+		Review review1 = new Review("Great Course Again", "5");
+		Review review2 = new Review("Great Course Again Again", "5");
+		
+		course.addReview(review1);
+		review1.setCourse(course);
+		course.addReview(review2);
+		review2.setCourse(course);
+		
+		entityManager.persist(review1);
+		entityManager.persist(review2);
+	}
+	
+	public void addReviewsForCourse(Long courseId, List<Review> reviews) {
+		Course course = entityManager.find(Course.class, courseId);
+		log.info("Reviews of Course " + courseId + course.getReviews());
+		
+		for (Review review : reviews) {
+			course.addReview(review);
+			review.setCourse(course);
+			
+			entityManager.persist(review);
+		}
+				
 	}
 	
 }

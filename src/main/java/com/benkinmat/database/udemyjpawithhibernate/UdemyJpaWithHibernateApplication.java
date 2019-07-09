@@ -1,6 +1,8 @@
 package com.benkinmat.database.udemyjpawithhibernate;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Person;
+import com.benkinmat.database.udemyjpawithhibernate.entity.Review;
 import com.benkinmat.database.udemyjpawithhibernate.jdbc.PersonJdbcDao;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.CourseJpaRepository;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.PersonJpaRepository;
@@ -59,7 +62,13 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 //		log.info("Play with entity manager ");
 //		courseJpaRepository.playWithEntityManager();
 		
-		studentJpaRepository.saveStudentWithPassport();
+//		studentJpaRepository.saveStudentWithPassport();
+		
+		List<Review> reviews = new ArrayList<Review>();
+		reviews.add(new Review("Greate stuff", "5"));
+		reviews.add(new Review("Greate stuff Again", "5"));
+		//		courseJpaRepository.addReviewsForCourse();
+		courseJpaRepository.addReviewsForCourse(1000L, reviews );
 	}
 
 }
