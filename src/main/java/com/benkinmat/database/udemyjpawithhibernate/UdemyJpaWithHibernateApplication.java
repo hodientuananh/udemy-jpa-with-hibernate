@@ -1,5 +1,6 @@
 package com.benkinmat.database.udemyjpawithhibernate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,10 +13,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
+import com.benkinmat.database.udemyjpawithhibernate.entity.FullTimeEmployee;
+import com.benkinmat.database.udemyjpawithhibernate.entity.PartTimeEmployee;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Person;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Review;
 import com.benkinmat.database.udemyjpawithhibernate.jdbc.PersonJdbcDao;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.CourseJpaRepository;
+import com.benkinmat.database.udemyjpawithhibernate.jpa.EmployeeJpaRepository;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.PersonJpaRepository;
 import com.benkinmat.database.udemyjpawithhibernate.jpa.StudentJpaRepository;
 
@@ -35,6 +39,9 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 	
 	@Autowired
 	StudentJpaRepository studentJpaRepository;
+	
+	@Autowired
+	EmployeeJpaRepository employeeJpaRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(UdemyJpaWithHibernateApplication.class, args);
@@ -70,7 +77,11 @@ public class UdemyJpaWithHibernateApplication implements CommandLineRunner{
 //		courseJpaRepository.addReviewsForCourse();
 //		courseJpaRepository.addReviewsForCourse(1000L, reviews );
 		
-		studentJpaRepository.insertStudentAndCourse();
+//		studentJpaRepository.insertStudentAndCourse();
+		
+		employeeJpaRepository.insert(new FullTimeEmployee("Full time 1", new BigDecimal(1000)));
+		employeeJpaRepository.insert(new PartTimeEmployee("Part time 1", new BigDecimal(50)));
+		log.info("all employees: " + employeeJpaRepository.retrieveAllEmployees());
 	}
 
 }
