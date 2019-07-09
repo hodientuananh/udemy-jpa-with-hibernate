@@ -49,4 +49,4 @@ insert into student_course(student_id, course_id) values
 insert into student_course(student_id, course_id) values
 (1000, 1001);
 insert into student_course(student_id, course_id) values
-(1000, 1001);
+(1001, 1001);
