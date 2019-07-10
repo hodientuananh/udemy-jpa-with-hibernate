@@ -57,7 +57,6 @@ public class CourseRepositoryTests {
 		assertEquals("Spring with Jpa - Updated", updatedCourse.getName());
 	}
 
-	// playWithEntityManager
 	@Test
 	@DirtiesContext
 	public void playWithEntityManager() {
@@ -69,6 +68,15 @@ public class CourseRepositoryTests {
 	public void retrieveReviewsOfCourse() {
 		Course course = repository.findById(1000L);
 		log.info("Reviews id = 1000: " + course.getReviews());
+	}
+	
+	@Test
+	public void retrieveCourseWithFirstCache() {
+		Course course = repository.findById(1000L);
+		log.info("First course retrieved: " + course);
+		
+		Course course1 = repository.findById(1000L);
+		log.info("First course retrieved again: " + course1);	
 	}
 	
 	@Test
