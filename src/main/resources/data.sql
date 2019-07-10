@@ -22,6 +22,24 @@ insert into course(id, name, created_date, last_updated_date) values
 (1001, 'Spring with Hibernate', sysdate(), sysdate());
 insert into course(id, name, created_date, last_updated_date) values
 (1002, 'Spring with Junit', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1003, 'Spring with Angular', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1004, 'Spring with Redix', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1005, 'Spring with Facebook', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1006, 'Spring with Twitter', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1007, 'Spring with Google', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1008, 'Spring with Ionic', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1009, 'Spring with Firebase', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1010, 'Spring with Github', sysdate(), sysdate());
+insert into course(id, name, created_date, last_updated_date) values
+(1011, 'Spring with Eclipse', sysdate(), sysdate());
 
 insert into passport(id, number) values
 (1000, 'A1000');
