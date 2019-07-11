@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -22,7 +24,8 @@ public class Review {
 	
 	private String description;
 	
-	private String rating;
+	@Enumerated(EnumType.STRING)
+	private Rating rating;
 	
 	@ManyToOne
 	private Course course;
@@ -31,7 +34,7 @@ public class Review {
 		
 	}
 	
-	public Review(String description, String rating) {
+	public Review(String description, Rating rating) {
 		this.setDescription(description);
 		this.setRating(rating);
 	}
@@ -48,11 +51,11 @@ public class Review {
 		return id;
 	}
 
-	public String getRating() {
+	public Rating getRating() {
 		return rating;
 	}
 
-	public void setRating(String rating) {
+	public void setRating(Rating rating) {
 		this.rating = rating;
 	}
 

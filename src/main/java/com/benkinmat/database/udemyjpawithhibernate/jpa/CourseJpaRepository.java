@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.benkinmat.database.udemyjpawithhibernate.UdemyJpaWithHibernateApplication;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
+import com.benkinmat.database.udemyjpawithhibernate.entity.Rating;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Review;
 
 @Repository
@@ -64,8 +65,8 @@ public class CourseJpaRepository {
 	public void addReviewsForCourse() {
 		Course course = entityManager.find(Course.class, 1000L);
 		log.info("Reviews of Course 1000: " + course.getReviews());
-		Review review1 = new Review("Great Course Again", "5");
-		Review review2 = new Review("Great Course Again Again", "5");
+		Review review1 = new Review("Great Course Again", Rating.FIVE);
+		Review review2 = new Review("Great Course Again Again", Rating.FIVE);
 		
 		course.addReview(review1);
 		review1.setCourse(course);
