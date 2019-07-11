@@ -91,8 +91,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", passport=" + passport + ", address=" + address + ", courses="
-				+ courses + "]";
+		return "Student [id=" + id + ", name=" + name + "]";
 	}
+	
 	
 }
