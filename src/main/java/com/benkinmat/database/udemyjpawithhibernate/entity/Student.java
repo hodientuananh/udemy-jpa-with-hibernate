@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -33,6 +34,9 @@ public class Student {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	private Passport passport;
+		
+	@Embedded
+	private Address address;
 	
 	@ManyToMany
 	@JoinTable(name = "STUDENT_COURSE",
@@ -77,9 +81,18 @@ public class Student {
 		this.courses.add(course);
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + "]";
+		return "Student [id=" + id + ", name=" + name + ", passport=" + passport + ", address=" + address + ", courses="
+				+ courses + "]";
 	}
 	
 }

@@ -16,6 +16,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.benkinmat.database.udemyjpawithhibernate.UdemyJpaWithHibernateApplication;
+import com.benkinmat.database.udemyjpawithhibernate.entity.Address;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Course;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Passport;
 import com.benkinmat.database.udemyjpawithhibernate.entity.Student;
@@ -64,6 +65,15 @@ public class StudentRepositoryTests {
 		Student student = entityManager.find(Student.class, 1000L);
 		log.info("Student id 1000L" + student);
 		log.info("Course of student id 1000L " + student.getCourses());
+	}
+	
+	@Test
+	@Transactional
+	public void setAddressDetails() {
+		Student student = entityManager.find(Student.class, 1000L);
+		student.setAddress(new Address("line 1", "line 2", "Ho Chi Minh city"));
+		entityManager.flush();
+		log.info("Student id 1000L " + student);
 	}
 	
 }
