@@ -14,12 +14,16 @@ import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.PreRemove;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.Where;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.benkinmat.database.udemyjpawithhibernate.UdemyJpaWithHibernateApplication;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -33,6 +37,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @SQLDelete(sql = "update course set is_deleted = true where id=?")
 @Where(clause = "is_deleted = false")
 public class Course {
+
+	private static final Logger log = LoggerFactory.getLogger(Course.class);
 
 	@Id
 	@GeneratedValue
@@ -54,22 +60,28 @@ public class Course {
 	@CreationTimestamp
 	private LocalDateTime createdDate;
 	
+	private boolean isDeleted;
+	
 	public Course(){
 		
+	}	
+
+	public Course(String name) {
+		this.setName(name);
 	}
-	
-	private boolean isDeleted;
 	
 	public boolean isDeleted() {
 		return isDeleted;
 	}
+	
+	@PreRemove
+	private void preRemove() {
+		log.info("Pre remove: Set isDeleted = true");
+		this.isDeleted = true;
+	}
 
 	public void setDeleted(boolean isDeleted) {
 		this.isDeleted = isDeleted;
-	}
-
-	public Course(String name) {
-		this.setName(name);
 	}
 
 	public String getName() {
