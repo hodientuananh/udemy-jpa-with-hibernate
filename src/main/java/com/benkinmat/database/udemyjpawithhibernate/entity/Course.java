@@ -16,7 +16,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.Where;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -28,6 +30,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 			query = "select c from Course c where c.name like '%Learn new%'")
 })
 @Cacheable
+@SQLDelete(sql = "update course set is_deleted = true where id=?")
+@Where(clause = "is_deleted = false")
 public class Course {
 
 	@Id
@@ -54,6 +58,16 @@ public class Course {
 		
 	}
 	
+	private boolean isDeleted;
+	
+	public boolean isDeleted() {
+		return isDeleted;
+	}
+
+	public void setDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
 	public Course(String name) {
 		this.setName(name);
 	}

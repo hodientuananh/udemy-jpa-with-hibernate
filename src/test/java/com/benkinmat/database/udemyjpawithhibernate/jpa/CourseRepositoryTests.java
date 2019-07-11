@@ -40,8 +40,8 @@ public class CourseRepositoryTests {
 	@Test
 	@DirtiesContext
 	public void deleteById() {
-		repository.deleteById(1000L);
-		assertNull(repository.findById(1000L));
+		repository.deleteById(1004L);
+		assertNull(repository.findById(1004L));
 	}
 
 	@Test
